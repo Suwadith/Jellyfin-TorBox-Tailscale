@@ -1,0 +1,38 @@
+# Environment and Secrets
+.env
+credentials.txt
+jellyfin_api_key.txt
+
+# Runtime State and Container Storage
+tailscale_state/
+jellyfin_config/
+jellyfin_cache/
+
+# Media Library (strm files generated at runtime)
+media/*
+!media/.gitkeep
+
+# TorBox Assistant Runtime Data & Logs
+torbox_assistant/data/*
+!torbox_assistant/data/.gitkeep
+torbox_assistant/logs/*
+!torbox_assistant/logs/.gitkeep
+
+# Python Caches & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# OS & Editor Metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak

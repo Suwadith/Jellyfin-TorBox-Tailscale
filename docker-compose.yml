@@ -1,0 +1,80 @@
+services:
+  tailscale:
+    image: tailscale/tailscale:latest
+    container_name: tailscale-jellyfin
+    hostname: jellyfin-server
+    environment:
+      - TS_AUTHKEY=${TS_AUTHKEY:-}
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+      - TS_HOSTNAME=jellyfin-server
+      - TS_BOOT_TIMEOUT=1000h
+      - TS_SERVE_CONFIG=/config/serve.json
+    volumes:
+      - ./tailscale_state:/var/lib/tailscale
+      - ./tailscale_config:/config
+      - /dev/net/tun:/dev/net/tun
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
+    ports:
+      # Jellyfin Web / API bound to localhost on host for local access & reverse proxies
+      - "127.0.0.1:8096:8096"
+      # Hybrid Swarm Proxy port (optional)
+      - "0.0.0.0:8080:8080"
+
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    # Share network namespace with Tailscale for seamless WireGuard mesh and Funnel ingress
+    network_mode: "service:tailscale"
+    depends_on:
+      - tailscale
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://jellyfin-server:8096
+    volumes:
+      - ./media:/media:ro
+      - ./jellyfin_config:/config
+      - ./jellyfin_cache:/cache
+
+  torbox-assistant:
+    build: ./torbox_assistant
+    container_name: torbox-assistant
+    restart: unless-stopped
+    # Share network namespace with Tailscale to communicate with local Jellyfin and mesh
+    network_mode: "service:tailscale"
+    depends_on:
+      - tailscale
+    environment:
+      - TORBOX_API_TOKEN=${TORBOX_API_TOKEN:-}
+      - TMDB_API_KEY=${TMDB_API_KEY:-}
+      - MEDIA_DIR=/media
+      - DATA_DIR=/app/data
+      - LOG_DIR=/app/logs
+      - JELLYFIN_API_KEY_PATH=/app/jellyfin_api_key.txt
+      - PROXY_PORT=8080
+      - SYNC_INTERVAL_SECONDS=${SYNC_INTERVAL_SECONDS:-300}
+      - WARMER_CYCLE_DAYS=${WARMER_CYCLE_DAYS:-10}
+      - FUNNEL_URL=${FUNNEL_URL:-}
+      - CF_UPDATE_URL=${CF_UPDATE_URL:-}
+      - CF_STREAM_URL=${CF_STREAM_URL:-}
+      - DOCKER_NETWORK_NAME=jellyfin_tailscale_net
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./media:/media
+      - ./torbox_assistant/data:/app/data
+      - ./torbox_assistant/logs:/app/logs
+      - ./torbox_assistant/jellyfin_strm_generator.py:/app/jellyfin_strm_generator.py:ro
+      - ./torbox_assistant/supervisor.py:/app/supervisor.py:ro
+      - ./torbox_assistant/warmer.py:/app/warmer.py:ro
+      - ./torbox_assistant/proxy.py:/app/proxy.py:ro
+      - ./jellyfin_api_key.txt:/app/jellyfin_api_key.txt:ro
+
+networks:
+  default:
+    name: jellyfin_tailscale_net
+
