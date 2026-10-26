@@ -1,0 +1,485 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B12"/>
+      <stop offset="50%" stop-color="#0C1322"/>
+      <stop offset="100%" stop-color="#080E1B"/>
+    </linearGradient>
+
+    <!-- Card Background Gradients -->
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131D31" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0E1626" stop-opacity="0.98"/>
+    </linearGradient>
+
+    <linearGradient id="docker-box-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1C34" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#091224" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+
+    <linearGradient id="green-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+
+    <linearGradient id="orange-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Drop Shadow for Cards -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Dot Grid Pattern -->
+    <pattern id="grid-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1E293B" opacity="0.4"/>
+    </pattern>
+
+    <style>
+      .title-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 800; fill: #FFFFFF; letter-spacing: -0.5px; }
+      .subtitle-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; fill: #94A3B8; }
+      .pill-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; }
+      .header-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #F1F5F9; }
+      .card-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5px; fill: #94A3B8; }
+      .code-badge { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 10.5px; fill: #38BDF8; }
+      .traffic-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 600; }
+
+      /* Flow Animations */
+      @keyframes dashFlowForward {
+        from { stroke-dashoffset: 40; }
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.55; }
+        50% { opacity: 1; }
+      }
+
+      .flow-cyan {
+        stroke: #38BDF8;
+        stroke-dasharray: 6 6;
+        animation: dashFlowForward 1.6s linear infinite;
+      }
+      .flow-purple {
+        stroke: #C084FC;
+        stroke-dasharray: 6 6;
+        animation: dashFlowForward 2s linear infinite;
+      }
+      .flow-green {
+        stroke: #34D399;
+        stroke-dasharray: 6 6;
+        animation: dashFlowForward 2.2s linear infinite;
+      }
+      .flow-direct-play {
+        stroke: #F59E0B;
+        stroke-dasharray: 8 6;
+        stroke-width: 3.5;
+        animation: dashFlowForward 1.2s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Deep Dark Canvas Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)"/>
+  <rect width="100%" height="100%" fill="url(#grid-dots)"/>
+
+  <!-- ===================================================================== -->
+  <!-- TOP HEADER SECTION                                                    -->
+  <!-- ===================================================================== -->
+  <g transform="translate(40, 24)">
+    <!-- Main Title & Subtitle (Clear of any badges) -->
+    <text x="0" y="22" class="title-text" font-size="22">JELLYFIN + TORBOX + TAILSCALE</text>
+    <text x="0" y="42" class="subtitle-text">High-Performance Cloud Streaming Architecture • 100% Direct Play • Zero-Transcode Invariant</text>
+
+    <!-- Top Key Metrics Badges (Positioned cleanly on the right) -->
+    <g transform="translate(720, 4)">
+      <!-- Metric 1: Zero Transcode -->
+      <rect x="0" y="0" width="132" height="34" rx="7" fill="#0C4A6E" fill-opacity="0.4" stroke="#0284C7" stroke-width="1.2"/>
+      <circle cx="15" cy="17" r="4" fill="#38BDF8">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="28" y="15" class="pill-text" fill="#E0F2FE">0% Host CPU</text>
+      <text x="28" y="27" font-size="9" font-family="-apple-system, sans-serif" fill="#7DD3FC">Video Transcoding</text>
+
+      <!-- Metric 2: Zero Local Disk -->
+      <rect x="144" y="0" width="132" height="34" rx="7" fill="#4C1D95" fill-opacity="0.35" stroke="#7C3AED" stroke-width="1.2"/>
+      <circle cx="159" cy="17" r="4" fill="#C084FC">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="172" y="15" class="pill-text" fill="#F3E8FF">0 GB Local Disk</text>
+      <text x="172" y="27" font-size="9" font-family="-apple-system, sans-serif" fill="#D8B4FE">Pure .strm Cloud Links</text>
+
+      <!-- Metric 3: Zero Port Forward -->
+      <rect x="288" y="0" width="132" height="34" rx="7" fill="#064E3B" fill-opacity="0.35" stroke="#059669" stroke-width="1.2"/>
+      <circle cx="303" cy="17" r="4" fill="#34D399">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="316" y="15" class="pill-text" fill="#D1FAE5">0 Open Ports</text>
+      <text x="316" y="27" font-size="9" font-family="-apple-system, sans-serif" fill="#6EE7B7">Tailscale Funnel &amp; Mesh</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- DEDICATED DIRECT PLAY HIGHWAY TRACK (Y: 70 - 120)                      -->
+  <!-- Isolated from text to prevent collisions                              -->
+  <!-- ===================================================================== -->
+  <g transform="translate(0, 0)">
+    <!-- Direct Play Golden Arch: Flows from TorBox Cloud CDN (X: 1030) to Client (X: 155) -->
+    <path id="path-direct-stream" d="M 1030 145 C 820 68, 380 68, 155 145" fill="none" class="flow-direct-play" filter="url(#glow-orange)"/>
+
+    <!-- Moving Golden Particle -->
+    <circle r="6" fill="#FBBF24" filter="url(#glow-orange)">
+      <animateMotion dur="1.4s" repeatCount="indefinite">
+        <mpath href="#path-direct-stream"/>
+      </animateMotion>
+    </circle>
+
+    <!-- Centered Highway Badge with generous breathing room -->
+    <g transform="translate(425, 68)">
+      <rect width="350" height="36" rx="8" fill="#1C1405" stroke="#F59E0B" stroke-width="1.8" filter="url(#drop-shadow)"/>
+      <circle cx="18" cy="18" r="5" fill="#FBBF24">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1s" repeatCount="indefinite"/>
+      </circle>
+      <text x="32" y="17" class="pill-text" font-size="12" fill="#FEF3C7">⚡️ 100% DIRECT PLAY VIDEO STREAM</text>
+      <text x="32" y="29" font-family="-apple-system, sans-serif" font-size="9.5" fill="#FDE68A">Heavy 4K stream flows directly from Cloud CDN to Client Player (0% Server Load)</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 1: CLIENT DEVICES & PLAYERS (X: 40, Width: 230, Height: 550)   -->
+  <!-- ===================================================================== -->
+  <g transform="translate(40, 135)">
+    <!-- Column Container -->
+    <rect width="230" height="550" rx="12" fill="#0E1626" fill-opacity="0.8" stroke="#1E293B" stroke-width="1.2" filter="url(#drop-shadow)"/>
+    <rect width="230" height="38" rx="12" fill="#131D31" fill-opacity="0.9"/>
+    <text x="16" y="24" class="header-label" fill="#38BDF8">Client Players</text>
+    <circle cx="208" cy="19" r="4" fill="#38BDF8"/>
+
+    <!-- Client Card 1: Apple TV / Swiftfin -->
+    <g transform="translate(14, 50)">
+      <rect width="202" height="72" rx="8" fill="url(#card-grad)" stroke="#1F2E47" stroke-width="1"/>
+      <rect x="12" y="14" width="30" height="30" rx="6" fill="#1E293B"/>
+      <!-- Apple TV Icon -->
+      <path d="M22 23 L32 23 L32 31 L22 31 Z M27 23 L27 21" stroke="#38BDF8" stroke-width="1.5" fill="none"/>
+      <text x="50" y="26" class="card-title" font-size="13">Apple TV / iOS</text>
+      <text x="50" y="42" class="card-desc" font-size="11">Swiftfin (VLCKit)</text>
+      <text x="50" y="56" class="code-badge" fill="#34D399" font-size="10">✓ 4K HDR • Direct Play</text>
+    </g>
+
+    <!-- Client Card 2: Mobile (iOS / Android) -->
+    <g transform="translate(14, 132)">
+      <rect width="202" height="72" rx="8" fill="url(#card-grad)" stroke="#1F2E47" stroke-width="1"/>
+      <rect x="12" y="14" width="30" height="30" rx="6" fill="#1E293B"/>
+      <!-- Phone Icon -->
+      <rect x="23" y="20" width="8" height="16" rx="2" stroke="#38BDF8" stroke-width="1.4" fill="none"/>
+      <text x="50" y="26" class="card-title" font-size="13">Jellyfin Mobile</text>
+      <text x="50" y="42" class="card-desc" font-size="11">Official iOS &amp; Android</text>
+      <text x="50" y="56" class="code-badge" fill="#38BDF8" font-size="10">Remote .strm stream</text>
+    </g>
+
+    <!-- Client Card 3: Web Browsers -->
+    <g transform="translate(14, 214)">
+      <rect width="202" height="72" rx="8" fill="url(#card-grad)" stroke="#1F2E47" stroke-width="1"/>
+      <rect x="12" y="14" width="30" height="30" rx="6" fill="#1E293B"/>
+      <!-- Globe Icon -->
+      <circle cx="27" cy="29" r="8" stroke="#38BDF8" stroke-width="1.4" fill="none"/>
+      <ellipse cx="27" cy="29" rx="4" ry="8" stroke="#38BDF8" stroke-width="1" fill="none"/>
+      <text x="50" y="26" class="card-title" font-size="13">Web Browsers</text>
+      <text x="50" y="42" class="card-desc" font-size="11">Safari, Chrome, Edge</text>
+      <text x="50" y="56" class="code-badge" fill="#C084FC" font-size="10">HTML5 Native Video</text>
+    </g>
+
+    <!-- Client Card 4: Desktop / Smart TV -->
+    <g transform="translate(14, 296)">
+      <rect width="202" height="72" rx="8" fill="url(#card-grad)" stroke="#1F2E47" stroke-width="1"/>
+      <rect x="12" y="14" width="30" height="30" rx="6" fill="#1E293B"/>
+      <!-- TV Display Icon -->
+      <rect x="20" y="21" width="14" height="11" rx="1" stroke="#38BDF8" stroke-width="1.4" fill="none"/>
+      <text x="50" y="26" class="card-title" font-size="13">Plezy / Desktop</text>
+      <text x="50" y="42" class="card-desc" font-size="11">Fire TV &amp; Media Player</text>
+      <text x="50" y="56" class="code-badge" fill="#34D399" font-size="10">Direct MPV Engine</text>
+    </g>
+
+    <!-- Client Card 5: Infuse Tip (Cleanly Spaced) -->
+    <g transform="translate(14, 378)">
+      <rect width="202" height="152" rx="8" fill="#121824" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="14" y="24" class="card-title" font-size="12" fill="#FBBF24">💡 Infuse &amp; VidHub Setup</text>
+      <text x="14" y="44" class="card-desc" font-size="10.5">Connect directly to TorBox WebDAV:</text>
+      <rect x="14" y="54" width="174" height="22" rx="4" fill="#1E1A11" stroke="#D97706" stroke-width="0.8"/>
+      <text x="20" y="69" class="code-badge" fill="#FDE68A" font-size="9.5">https://webdav.torbox.app</text>
+      <text x="14" y="96" class="card-desc" font-size="10">✓ Bypasses media server buffers</text>
+      <text x="14" y="112" class="card-desc" font-size="10">✓ Immune to 2GB static stream cap</text>
+      <text x="14" y="128" class="card-desc" font-size="10" fill="#94A3B8">(Jellyfin GitHub Issue #12306)</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 2: DOCKER HOST ISOLATION (X: 300, Width: 575, Height: 550)     -->
+  <!-- Expanded by +135px to eliminate all text cramping                     -->
+  <!-- ===================================================================== -->
+  <g transform="translate(300, 135)">
+    <!-- Outer Docker Box -->
+    <rect width="575" height="550" rx="14" fill="url(#docker-box-grad)" stroke="#24385C" stroke-width="1.6" filter="url(#drop-shadow)"/>
+    
+    <!-- Top Bar with Docker Badge -->
+    <rect width="575" height="40" rx="14" fill="#0F1F3D" fill-opacity="0.95"/>
+    <rect x="16" y="10" width="22" height="20" rx="4" fill="#2496ED"/>
+    <!-- Docker Whale Logo simplified -->
+    <rect x="20" y="16" width="3" height="3" fill="#FFFFFF"/>
+    <rect x="24" y="16" width="3" height="3" fill="#FFFFFF"/>
+    <rect x="28" y="16" width="3" height="3" fill="#FFFFFF"/>
+    <rect x="24" y="12" width="3" height="3" fill="#FFFFFF"/>
+    <text x="46" y="25" class="header-label" fill="#60A5FA" font-size="12">Docker Host Isolation</text>
+    <rect x="360" y="10" width="200" height="20" rx="5" fill="#172554"/>
+    <text x="368" y="24" font-family="ui-monospace, monospace" font-size="10.5" fill="#93C5FD">network_mode: service:tailscale</text>
+
+    <!-- Sub-Container 1: tailscale-jellyfin -->
+    <g transform="translate(16, 52)">
+      <rect width="543" height="116" rx="10" fill="url(#card-grad)" stroke="#0284C7" stroke-width="1.4"/>
+      
+      <!-- Container Title Bar -->
+      <circle cx="20" cy="20" r="5" fill="#38BDF8">
+        <animate attributeName="r" values="4;6.5;4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="32" y="24" class="card-title" font-size="14">tailscale-jellyfin</text>
+      
+      <!-- Badges with non-overlapping dedicated positions -->
+      <rect x="200" y="11" width="160" height="20" rx="4" fill="#0C4A6E"/>
+      <text x="208" y="25" class="code-badge" fill="#7DD3FC">MagicDNS: jellyfin-server</text>
+      
+      <rect x="372" y="11" width="158" height="20" rx="4" fill="#064E3B"/>
+      <text x="380" y="25" class="code-badge" fill="#6EE7B7">DERP Relay: Ingress Active</text>
+
+      <!-- Bullet points with generous 21px line spacing -->
+      <text x="18" y="55" class="card-desc" font-size="11.5">• <tspan fill="#38BDF8" font-weight="700">WireGuard Mesh</tspan>: Exposes port <tspan fill="#38BDF8" font-weight="700">8096</tspan> on private tailnet (100.x.y.z)</text>
+      <text x="18" y="75" class="card-desc" font-size="11.5">• <tspan fill="#34D399" font-weight="700">Tailscale Funnel</tspan>: Public HTTPS on port <tspan fill="#34D399" font-weight="700">443</tspan> with automated Let's Encrypt</text>
+      <text x="18" y="95" class="card-desc" font-size="11.5">• <tspan fill="#F59E0B" font-weight="600">Zero Host Pollution</tspan>: Tunnel device <tspan fill="#94A3B8" font-family="monospace">/dev/net/tun</tspan> stays 100% inside container</text>
+    </g>
+
+    <!-- Sub-Container 2: jellyfin server -->
+    <g transform="translate(16, 178)">
+      <rect width="543" height="136" rx="10" fill="url(#card-grad)" stroke="#7C3AED" stroke-width="1.4"/>
+      
+      <!-- Container Title Bar -->
+      <circle cx="20" cy="20" r="5" fill="#C084FC">
+        <animate attributeName="r" values="4;6.5;4" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="32" y="24" class="card-title" font-size="14">jellyfin (v10.9+)</text>
+      
+      <!-- Badges without overlapping -->
+      <rect x="185" y="11" width="170" height="20" rx="4" fill="#4C1D95"/>
+      <text x="193" y="25" class="code-badge" fill="#E9D5FF">Zero-Transcode Policy</text>
+      
+      <rect x="365" y="11" width="165" height="20" rx="4" fill="#1E293B"/>
+      <text x="375" y="25" class="code-badge" fill="#CBD5E1">Media: ./media (.strm):ro</text>
+
+      <!-- Bullet points with 21px line spacing -->
+      <text x="18" y="55" class="card-desc" font-size="11.5">• <tspan fill="#F43F5E" font-weight="700">Video Transcode Lockdown</tspan>: <tspan fill="#FDA4AF" font-family="monospace">EnableVideoPlaybackTranscoding=False</tspan></text>
+      <text x="18" y="75" class="card-desc" font-size="11.5">  Guarantees <tspan fill="#38BDF8" font-weight="700">0% CPU Host Load</tspan> — 4K Remux streams are never re-encoded</text>
+      <text x="18" y="95" class="card-desc" font-size="11.5">• <tspan fill="#34D399" font-weight="700">Apple DTS Audio Remux</tspan>: Repackages DTS ➔ AAC on-the-fly (<tspan fill="#34D399" font-weight="700">&lt;1% CPU</tspan>)</text>
+      <text x="18" y="115" class="card-desc" font-size="11.5">  Eliminates <tspan fill="#FBBF24">"Failed to load file"</tspan> errors on iOS, macOS, and Apple TV</text>
+    </g>
+
+    <!-- Sub-Container 3: torbox-assistant -->
+    <g transform="translate(16, 324)">
+      <rect width="543" height="150" rx="10" fill="url(#card-grad)" stroke="#059669" stroke-width="1.4"/>
+      
+      <!-- Container Title Bar -->
+      <circle cx="20" cy="20" r="5" fill="#34D399">
+        <animate attributeName="r" values="4;6.5;4" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="32" y="24" class="card-title" font-size="14">torbox-assistant</text>
+      
+      <!-- Badges without overlapping -->
+      <rect x="190" y="11" width="165" height="20" rx="4" fill="#064E3B"/>
+      <text x="198" y="25" class="code-badge" fill="#A7F3D0">Loop: 300s Automated Sync</text>
+      
+      <rect x="365" y="11" width="165" height="20" rx="4" fill="#14532D"/>
+      <text x="373" y="25" class="code-badge" fill="#86EFAC">Warmer: 10-Day Rotation</text>
+
+      <!-- Bullet points with 20px line spacing & clear readability -->
+      <text x="18" y="54" class="card-desc" font-size="11">• <tspan fill="#34D399" font-weight="700">Autonomous STRM Generator</tspan>: Discovers TorBox torrents &amp; fetches TMDb v3 metadata</text>
+      <text x="18" y="74" class="card-desc" font-size="11">• <tspan fill="#38BDF8" font-weight="600">Multi-Version Disambiguation</tspan>: Coexists 4K IMAX &amp; 1080p SDR without file flapping</text>
+      <text x="18" y="94" class="card-desc" font-size="11">• <tspan fill="#C084FC" font-weight="600">Two-Way Persistence</tspan>: Automatically remembers manual folder moves &amp; [tmdbid] tags</text>
+      <text x="18" y="114" class="card-desc" font-size="11">• <tspan fill="#F59E0B" font-weight="600">Anime &amp; Regional Isolation</tspan>: Heuristic classifier separates Bleach TYBW &amp; Indian cinema</text>
+      <text x="18" y="134" class="card-desc" font-size="11">• <tspan fill="#F43F5E" font-weight="600">DERP Keepalive Heartbeat</tspan>: 60s probe pings public Funnel URL to auto-heal idle relays</text>
+    </g>
+
+    <!-- Sub-Bar: Docker Netns Watchdog (Dedicated clean footer bar without intersecting text) -->
+    <g transform="translate(16, 484)">
+      <rect width="543" height="48" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <circle cx="20" cy="24" r="5" fill="#94A3B8"/>
+      <text x="32" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#E2E8F0">Docker Stack Netns Watchdog (/var/run/docker.sock)</text>
+      <text x="32" y="37" font-family="-apple-system, sans-serif" font-size="10.5" fill="#94A3B8">Detects Docker Desktop UI reboots &amp; automatically re-attaches orphaned network namespaces</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 3: EXTERNAL CLOUD ECOSYSTEM (X: 905, Width: 255, Height: 550)  -->
+  <!-- ===================================================================== -->
+  <g transform="translate(905, 135)">
+    <!-- Column Container -->
+    <rect width="255" height="550" rx="12" fill="#0E1626" fill-opacity="0.8" stroke="#1E293B" stroke-width="1.2" filter="url(#drop-shadow)"/>
+    <rect width="255" height="38" rx="12" fill="#131D31" fill-opacity="0.9"/>
+    <text x="16" y="24" class="header-label" fill="#FBBF24">Cloud Ecosystem</text>
+    <circle cx="232" cy="19" r="4" fill="#FBBF24"/>
+
+    <!-- Service Card 1: TorBox CDN (Height: 160) -->
+    <g transform="translate(14, 50)">
+      <rect width="227" height="150" rx="8" fill="url(#card-grad)" stroke="#D97706" stroke-width="1.3"/>
+      <rect x="12" y="12" width="30" height="30" rx="6" fill="#451A03"/>
+      <path d="M22 28 A 4 4 0 0 1 22 22 A 6 6 0 0 1 32 20 A 5 5 0 0 1 36 26 A 4 4 0 0 1 34 28 Z" fill="#FBBF24"/>
+      <text x="50" y="25" class="card-title" font-size="13.5" fill="#FDE68A">TorBox Cloud</text>
+      <text x="50" y="39" class="card-desc" font-size="10.5">High-Speed Debrid CDN</text>
+      
+      <line x1="12" y1="49" x2="215" y2="49" stroke="#292524" stroke-width="1"/>
+      
+      <text x="12" y="68" class="card-desc" font-size="11">• Multi-gigabit video delivery</text>
+      <text x="12" y="86" class="card-desc" font-size="11">• Direct streams to player client</text>
+      <text x="12" y="104" class="card-desc" font-size="11">• 0% home server bandwidth load</text>
+      <text x="12" y="124" class="code-badge" fill="#F59E0B" font-size="10">Streams 4K Remuxes @ 100+ Mbps</text>
+      <text x="12" y="140" class="card-desc" font-size="9.5" fill="#78716C">Cached forever via Warmer daemon</text>
+    </g>
+
+    <!-- Service Card 2: TMDb API (Height: 145) -->
+    <g transform="translate(14, 212)">
+      <rect width="227" height="142" rx="8" fill="url(#card-grad)" stroke="#059669" stroke-width="1.2"/>
+      <rect x="12" y="12" width="30" height="30" rx="6" fill="#064E3B"/>
+      <!-- Film Roll Icon -->
+      <circle cx="27" cy="27" r="7" stroke="#34D399" stroke-width="1.5" fill="none"/>
+      <circle cx="27" cy="27" r="2.5" fill="#34D399"/>
+      <text x="50" y="25" class="card-title" font-size="13.5" fill="#A7F3D0">The Movie Database</text>
+      <text x="50" y="39" class="card-desc" font-size="10.5">TMDb v3 Official API</text>
+      
+      <line x1="12" y1="49" x2="215" y2="49" stroke="#1E293B" stroke-width="1"/>
+      
+      <text x="12" y="68" class="card-desc" font-size="11">• Exact title &amp; year matching</text>
+      <text x="12" y="86" class="card-desc" font-size="11">• High-res posters &amp; backdrops</text>
+      <text x="12" y="104" class="card-desc" font-size="11">• Kodi/XBMC episode NFO files</text>
+      <text x="12" y="124" class="code-badge" fill="#6EE7B7" font-size="10">Indian &amp; Anime heuristics</text>
+    </g>
+
+    <!-- Service Card 3: Tailscale Coordination Plane (Height: 160) -->
+    <g transform="translate(14, 366)">
+      <rect width="227" height="164" rx="8" fill="url(#card-grad)" stroke="#0284C7" stroke-width="1.2"/>
+      <rect x="12" y="12" width="30" height="30" rx="6" fill="#0C4A6E"/>
+      <!-- Shield / Network Icon -->
+      <circle cx="27" cy="27" r="6" stroke="#38BDF8" stroke-width="1.5" fill="none"/>
+      <text x="50" y="25" class="card-title" font-size="13.5" fill="#BAE6FD">Tailscale DERP</text>
+      <text x="50" y="39" class="card-desc" font-size="10.5">Global Relay Ingress</text>
+      
+      <line x1="12" y1="49" x2="215" y2="49" stroke="#1E293B" stroke-width="1"/>
+      
+      <text x="12" y="68" class="card-desc" font-size="11">• Global DERP edge relay nodes</text>
+      <text x="12" y="86" class="card-desc" font-size="11">• Automatic NAT &amp; TLS termination</text>
+      <text x="12" y="104" class="card-desc" font-size="11">• MagicDNS mesh routing</text>
+      <text x="12" y="124" class="code-badge" fill="#38BDF8" font-size="10">Kept warm via 60s probe</text>
+      <text x="12" y="142" class="card-desc" font-size="9.5" fill="#64748B">Auto-reprovisions stale ingress</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- ANIMATED FLOW PATHS BETWEEN COLUMNS                                   -->
+  <!-- ===================================================================== -->
+
+  <!-- Path 1: Client Request to Tailscale Gateway (X: 270 to 316) -->
+  <path id="path-client-ingress" d="M 270 240 L 316 240" fill="none" class="flow-cyan" stroke-width="2.5"/>
+  <circle r="4" fill="#38BDF8" filter="url(#glow-cyan)">
+    <animateMotion dur="1.5s" repeatCount="indefinite">
+      <mpath href="#path-client-ingress"/>
+    </animateMotion>
+  </circle>
+  <rect x="250" y="210" width="75" height="18" rx="4" fill="#0C2340" stroke="#0284C7" stroke-width="0.8"/>
+  <text x="256" y="223" class="traffic-label" fill="#7DD3FC" font-size="9.5">HTTPS / Mesh</text>
+
+  <!-- Path 2: TorBox Assistant -> TMDb API -->
+  <path id="path-assistant-tmdb" d="M 875 490 L 919 360" fill="none" class="flow-green" stroke-width="2"/>
+  <circle r="3.5" fill="#34D399">
+    <animateMotion dur="2.2s" repeatCount="indefinite">
+      <mpath href="#path-assistant-tmdb"/>
+    </animateMotion>
+  </circle>
+  <rect x="860" y="410" width="60" height="17" rx="4" fill="#064E3B" stroke="#059669" stroke-width="0.8"/>
+  <text x="866" y="422" class="traffic-label" fill="#6EE7B7" font-size="9">TMDb v3</text>
+
+  <!-- Path 3: TorBox Assistant -> TorBox API & Warmer -->
+  <path id="path-assistant-torbox" d="M 875 470 L 919 220" fill="none" class="flow-purple" stroke-width="2"/>
+  <circle r="3.5" fill="#C084FC">
+    <animateMotion dur="2s" repeatCount="indefinite">
+      <mpath href="#path-assistant-torbox"/>
+    </animateMotion>
+  </circle>
+  <rect x="856" y="280" width="66" height="17" rx="4" fill="#451A03" stroke="#D97706" stroke-width="0.8"/>
+  <text x="861" y="292" class="traffic-label" fill="#FCD34D" font-size="9">API &amp; Warm</text>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM FOOTER CALLOUT BAR (X: 40, Width: 1120, Height: 95)             -->
+  <!-- Cleanly wrapped multi-line text with zero collisions                  -->
+  <!-- ===================================================================== -->
+  <g transform="translate(40, 705)">
+    <rect width="1120" height="95" rx="10" fill="#0B1322" stroke="#1E293B" stroke-width="1.2"/>
+    
+    <!-- Advantage 1 -->
+    <g transform="translate(24, 20)">
+      <circle cx="12" cy="14" r="12" fill="#0C4A6E"/>
+      <text x="8" y="19" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#38BDF8">1</text>
+      <text x="34" y="14" class="card-title" font-size="13" fill="#E0F2FE">No Expensive GPU Required</text>
+      <text x="34" y="32" class="card-desc" font-size="11">Host never re-encodes video streams (0% CPU load)</text>
+      <text x="34" y="48" class="card-desc" font-size="10.5" fill="#64748B">Runs cool &amp; whisper quiet on mini PCs or Raspberry Pi</text>
+    </g>
+
+    <!-- Column 1-2 Divider -->
+    <line x1="390" y1="16" x2="390" y2="78" stroke="#1E293B" stroke-width="1"/>
+
+    <!-- Advantage 2 -->
+    <g transform="translate(415, 20)">
+      <circle cx="12" cy="14" r="12" fill="#4C1D95"/>
+      <text x="8" y="19" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#C084FC">2</text>
+      <text x="34" y="14" class="card-title" font-size="13" fill="#F3E8FF">Apple DTS Compatibility</text>
+      <text x="34" y="32" class="card-desc" font-size="11">DTS-HD/MA repacked to AAC on-the-fly (&lt;1% CPU)</text>
+      <text x="34" y="48" class="card-desc" font-size="10.5" fill="#64748B">Zero playback failures on Apple TV, iOS, and macOS</text>
+    </g>
+
+    <!-- Column 2-3 Divider -->
+    <line x1="775" y1="16" x2="775" y2="78" stroke="#1E293B" stroke-width="1"/>
+
+    <!-- Advantage 3 -->
+    <g transform="translate(800, 20)">
+      <circle cx="12" cy="14" r="12" fill="#064E3B"/>
+      <text x="8" y="19" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#34D399">3</text>
+      <text x="34" y="14" class="card-title" font-size="13" fill="#D1FAE5">Zero-Maintenance Self-Healing</text>
+      <text x="34" y="32" class="card-desc" font-size="11">Auto-reconnects broken netns on Docker UI reboots</text>
+      <text x="34" y="48" class="card-desc" font-size="10.5" fill="#64748B">DERP relay keepalives &amp; 10-day TorBox cache refresh</text>
+    </g>
+  </g>
+</svg>
