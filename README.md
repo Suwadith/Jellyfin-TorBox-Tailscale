@@ -154,8 +154,8 @@ Running `python3 setup_jellyfin.py` configures your Jellyfin server end-to-end:
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/Suwadith/jellyfin-torbox-tailscale.git
-cd jellyfin-torbox-tailscale
+git clone https://github.com/Suwadith/Jellyfin-TorBox-Tailscale.git
+cd Jellyfin-TorBox-Tailscale
 ```
 
 ### Step 2: Configure Environment Variables
